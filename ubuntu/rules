@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+export DH_ALWAYS_EXCLUDE := COPYING
+
+DEBIAN_CODENAME = $(shell echo $$DIST)
+ifeq "$(DEBIAN_CODENAME)" ""
+	DEBIAN_CODENAME = $(shell dpkg-parsechangelog | awk '/^Distribution: / {print $$2}')
+endif
+ifneq (,$(filter $(DEBIAN_CODENAME),lucid karmic)) 
+	BUILDDEBFLAGS= -- -Zlzma -z9
+else
+	BUILDDEBFLAGS= -- -Zxz -z9
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DGIT_HASH=#GIT_HASH# -DGIT_DATE=#GIT_DATE#
+
+override_dh_builddeb:
+	dh_builddeb $(BUILDDEBFLAGS)
+
+%:
+	dh $@ --parallel
