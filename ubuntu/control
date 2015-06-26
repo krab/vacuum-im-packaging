@@ -1,0 +1,13 @@
+Source: vacuum-usermood
+Section: net
+Priority: optional
+Maintainer: Alexey Ivanov <alexey.ivanes@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), libqt4-dev, vacuum-dev, cmake
+Standards-Version: 3.9.3
+Homepage: https://github.com/Vacuum-IM/usermood
+
+Package: vacuum-usermood
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: User Mood plugin for Vacuum-IM
+ Allows you to send and receive information about user moods.

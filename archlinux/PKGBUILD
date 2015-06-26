@@ -1,0 +1,34 @@
+# Contributor: Alexey Ivanov <alexey.ivanes@gmail.com>
+
+pkgname=#PKGNAME#
+pkgver=#VER#+git#CDATE#
+pkgrel=#REL#
+pkgdesc='Allows you to send and receive information about user moods.'
+arch=('i686' 'x86_64')
+url="https://github.com/Vacuum-IM/usermood"
+license=('GPL3')
+depends=('qt4>=4.7.4' 'vacuum-im>=1.3.0')
+makedepends=('cmake' 'mesa-libgl')
+source=('#SRC#')
+sha1sums=('#SUM#')
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../${pkgname} -DINSTALL_APP_DIR=vacuum-im\
+                      -DVACUUM_SDK_PATH=/usr/include/vacuum-im\
+                      -DCMAKE_INSTALL_PREFIX=/usr\
+                      -DCMAKE_BUILD_TYPE=Release\
+                      -DGIT_HASH=#GIT_HASH#\
+                      -DGIT_DATE=#GIT_DATE#\
+                      -DQT_QMAKE_EXECUTABLE=/usr/bin/qmake4
+  make
+}
+
+package() {
+  cd build
+  make install DESTDIR="${pkgdir}"
+}
