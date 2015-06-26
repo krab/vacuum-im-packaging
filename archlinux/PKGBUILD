@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 url="https://github.com/Vacuum-IM/clienticons"
 license=('GPL3')
 depends=('qt4>=4.7.4' 'vacuum-im>=1.3.0')
-makedepends=(cmake' 'mesa-libgl')
+makedepends=('cmake' 'mesa-libgl')
 source=('#SRC#')
 sha1sums=('#SUM#')
 
