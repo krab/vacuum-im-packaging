@@ -1,0 +1,5 @@
+vacuum-unityintegration (#VER#+git#CDATE#-#DIST##REL#) #DIST#; urgency=low
+
+  * Build git commit hash #GIT_HASH# 
+
+ -- Vacuum-IM <admin@vacuum-im.org>  #RDATE#

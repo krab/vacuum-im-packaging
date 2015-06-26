@@ -1,0 +1,13 @@
+Source: vacuum-unityintegration
+Section: net
+Priority: optional
+Maintainer: Alexey Ivanov <alexey.ivanes@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), libqt4-dev, vacuum-dev, cmake, libdbusmenu-qt-dev, libmessaging-menu-dev
+Standards-Version: 3.9.3
+Homepage: https://github.com/Vacuum-IM/unityintegration
+
+Package: vacuum-unityintegration
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Unity Integration plugin for Vacuum-IM
+ Provides integration with Unity
