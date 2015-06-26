@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Alexey Ivanov <alexey.ivanes@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), libqt4-dev, vacuum-dev, cmake
 Standards-Version: 3.9.3
-Homepage: http://code.google.com/p/vacuum-plugins/
+Homepage: https://github.com/Vacuum-IM/useractivity
 
 Package: vacuum-useractivity
 Architecture: any
