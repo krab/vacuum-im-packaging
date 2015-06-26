@@ -1,0 +1,13 @@
+Source: vacuum-dbusnotifications
+Section: net
+Priority: optional
+Maintainer: Alexey Ivanov <alexey.ivanes@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~), libqt4-dev, vacuum-dev, cmake
+Standards-Version: 3.9.3
+Homepage: https://github.com/Vacuum-IM/dbusnotifications
+
+Package: vacuum-dbusnotifications
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: DBus Notifications plugin for Vacuum-IM
+ Popup notifications using dbus system.
