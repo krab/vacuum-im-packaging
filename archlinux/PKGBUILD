@@ -1,0 +1,34 @@
+# Contributor: Alexey Ivanov <alexey.ivanes@gmail.com>
+
+pkgname=#PKGNAME#
+pkgver=#VER#+git#CDATE#
+pkgrel=#REL#
+pkgdesc='Full-featured crossplatform Jabber/XMPP client.'
+arch=('i686' 'x86_64')
+url="https://github.com/Vacuum-IM/vacuum-im"
+license=('GPL3')
+depends=('qt4>=4.7.4' 'openssl' 'libidn' 'zlib' 'libxss' 'qtwebkit' 'enchant')
+makedepends=('cmake' 'mesa-libgl')
+source=('#SRC#')
+sha1sums=('#SUM#')
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../${pkgname} -DINSTALL_APP_DIR=${pkgname}\
+                      -DCMAKE_INSTALL_PREFIX=/usr\
+                      -DCMAKE_BUILD_TYPE=Release\
+                      -DGIT_HASH=#GIT_HASH#\
+                      -DGIT_DATE=#GIT_DATE#\
+                      -DQT_QMAKE_EXECUTABLE=/usr/bin/qmake4
+  make -j3
+}
+
+package() {
+  cd build
+  make install DESTDIR="${pkgdir}"
+}
+

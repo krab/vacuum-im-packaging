@@ -1,0 +1,35 @@
+Source: vacuum
+Section: net
+Priority: optional
+Maintainer: Alexey Ivanov <alexey.ivanes@gmail.com>
+Build-Depends: cmake, debhelper (>= 7.0.50~), openssl, libqtwebkit-dev | libqt4-dev, libx11-dev, zlib1g-dev, libidn11-dev, libxss-dev, libenchant-dev, bc
+Standards-Version: 3.9.3
+Homepage: http://code.google.com/p/vacuum-im/
+
+Package: vacuum
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-sql-sqlite, libvacuumutils21 (>= ${source:Version})
+Conflicts: vacuum-spellchecker
+Replaces: vacuum-spellchecker
+Description: Full-featured crossplatform Jabber/XMPP client
+ Vacuum-IM is a free instant messaging application designed for the Jabber
+ (XMPP) IM network (including Google Talk). It has full Unicode support, 
+ and supports most important XMPP features.
+
+Package: libvacuumutils21
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libvacuumutils1., libvacuumutils1.19, libvacuumutils1.20, libvacuumutils1.21, libvacuumutils20,
+Replaces: libvacuumutils1., libvacuumutils1.19, libvacuumutils1.20, libvacuumutils1.21, libvacuumutils20,
+Description: Full-featured crossplatform Jabber/XMPP client (shared library)
+ Vacuum-IM is a free instant messaging application designed for the Jabber
+ (XMPP) IM network (including Google Talk). It has full Unicode support, 
+ and supports most important XMPP features.
+
+Package: vacuum-dev
+Architecture: all
+Depends: ${misc:Depends}, libvacuumutils21 (>= ${source:Version})
+Description: Development files for Vacuum-IM
+ This package contains Vacuum-IM include files you need if you
+ want to develop plugins for Vacuum-IM.
+
